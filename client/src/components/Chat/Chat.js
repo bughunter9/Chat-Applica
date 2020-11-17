@@ -7,10 +7,10 @@ import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 
+
 import './Chat.css';
 
-const ENDPOINT = 'https://project-chat-application.herokuapp.com/';
-
+const ENDPOINT = 'https://socket-chat-applica.herokuapp.com/';
 let socket;
 
 const Chat = ({ location }) => {
@@ -29,6 +29,7 @@ const Chat = ({ location }) => {
     setName(name)
 
     socket.emit('join', { name, room }, (error) => {
+      //skip events
       if(error) {
         alert(error);
       }
